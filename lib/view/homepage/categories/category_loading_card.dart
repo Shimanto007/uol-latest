@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
+
+class CategoryLoadingCard extends StatelessWidget {
+  const CategoryLoadingCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Material(
+        elevation: 8,
+        shadowColor: Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(10),
+        child: Shimmer.fromColors(
+          baseColor: Colors.grey.shade300,
+          highlightColor: Colors.white,
+          child: Container(
+            width: 150,
+            height: 150,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade300,
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

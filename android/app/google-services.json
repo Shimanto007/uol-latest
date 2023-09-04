@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "431043658861",
+    "project_id": "ultimate-organic-life-2bf23",
+    "storage_bucket": "ultimate-organic-life-2bf23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431043658861:android:b58dc2d28c5da3a6f5ab64",
+        "android_client_info": {
+          "package_name": "com.uol.ultimateorganiclife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431043658861-k3knpccdtq4vufa7e7qc15v73pc70ud9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgMmfYEdoPmQZUtibmUt0DscXn7IqsnYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431043658861-k3knpccdtq4vufa7e7qc15v73pc70ud9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "431043658861-v81giltnl2h49a791fa8g3ggknhbq1fi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.uol.ultimateorganiclife"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
