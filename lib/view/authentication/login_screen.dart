@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontFamily: 'Lato',
                       ),
                     ),
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType.text,
                   ),
                   const SizedBox(height: 16.0),
                   TextFormField(

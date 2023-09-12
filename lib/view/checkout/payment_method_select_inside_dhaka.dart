@@ -122,22 +122,26 @@ class _SelectPaymentMethodState extends State<SelectPaymentMethod> {
                 onPressed: () async {
                   if (_paymentMethod == 'ssl') {
                     // print(_paymentMethod);
-                    ordereds(_paymentMethod, context);
+                    ordereds(_paymentMethod, context).then((_) async {
+                      final prefs = await SharedPreferences.getInstance();
+                      final message = prefs.getString('order_message');
+                      print(message);
+
+                      _showErrorDialog('$message');
+                    });
                     // PageRouting.goToNextPage(
                     //   context: context,
                     //   navigateTo: SSLpayment(),
                     // );
-                    final prefs = await SharedPreferences.getInstance();
-                    final message = prefs.getString('order_message');
-                    print(message);
 
-                    _showErrorDialog('$message');
                   }
                   if (_paymentMethod == 'cod') {
-                    ordereds(_paymentMethod, context);
-                    final prefs = await SharedPreferences.getInstance();
+                    ordereds(_paymentMethod, context).then((_) async {
+                      final prefs = await SharedPreferences.getInstance();
                     final message = prefs.getString('order_message');
                     _showErrorDialog('$message');
+                    });
+
                   }
                 },
                 child: Text('Proceed to Checkout'),

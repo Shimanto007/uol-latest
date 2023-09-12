@@ -35,7 +35,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
     final response = await http.get(
       Uri.parse(
-          '$baseUrl/get-edit-customer/$userId?platform=app'),
+          'https://ultimateasiteapi.com/api/get-edit-customer/$userId?platform=app'),
       headers: headers,
     );
 

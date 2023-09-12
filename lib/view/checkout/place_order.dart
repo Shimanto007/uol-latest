@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uol_new/constant.dart';
+import 'package:uol_new/controller/controller.dart';
 import 'package:uol_new/view/checkout/payment_sslcommerz.dart';
+import 'package:uol_new/view/checkout/success_order_screen.dart';
 
 import '../../route/routes.dart';
 
@@ -66,7 +68,7 @@ Future<dynamic> ordereds(_paymentMethod, BuildContext context) async {
       'Content-Type': 'application/json'
     };
     final response = await http.post(
-      Uri.parse('$baseUrl/order'),
+      Uri.parse('https://ultimateasiteapi.com/api/order?platform=app'),
       headers: headers,
       body: data,
     );
@@ -74,6 +76,7 @@ Future<dynamic> ordereds(_paymentMethod, BuildContext context) async {
     print(responseData);
 
     if (responseData['success'] == true && responseData['code'] == 200 && responseData['success'] != null) {
+      cartController.emptyCart();
       if (_paymentMethod == 'ssl') {
         await prefs.setInt('order_key', responseData['data']);
         final ordss = prefs.getInt('order_key');
@@ -84,8 +87,22 @@ Future<dynamic> ordereds(_paymentMethod, BuildContext context) async {
           context: context,
           navigateTo: SSLpayment(),
         );
+
         return responseData['success'];
 
+      } else if (_paymentMethod == 'cod') {
+        await prefs.setInt('order_key', responseData['data']);
+        final ordss = prefs.getInt('order_key');
+        await prefs.setString('order_message', responseData['message']);
+        await prefs.setInt('order_number', responseData['data']);
+        final orderNumber = prefs.getInt('order_number');
+        final text = prefs.getString('order_message');
+        print(responseData);
+        PageRouting.goToNextPage(
+          context: context,
+          navigateTo: OrderSuccess(orderNumber: responseData['data'],),
+        );
+        return responseData['success'];
       }
       // await prefs.setInt('order_key', responseData['data']);
       // final ordss = prefs.getInt('order_key');

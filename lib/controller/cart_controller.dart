@@ -13,6 +13,13 @@ class CartController extends GetxController {
   void onInit() {
     super.onInit();
     loadCartItems();
+    emptyCart();
+  }
+
+    void emptyCart() {
+    cartItems.clear();
+    update();
+    saveCartItems();
   }
 
   void addItemToCart(CartItem item) {

@@ -120,6 +120,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ),
                   ),
+
                   SingleChildScrollView(
                     child: Container(
                       height: 680,
@@ -257,6 +258,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                     ),
                   ),
+
                 ],
               ),
             );

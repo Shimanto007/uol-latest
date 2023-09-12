@@ -114,9 +114,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
             return Center(
               child: Container(
                 child: Center(
-                  child: Text(
-                    'No Orders To show',
-                  ),
+                  child: CircularProgressIndicator(),
                 ),
               ),
             );
